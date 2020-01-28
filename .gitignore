@@ -9,3 +9,8 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+/node_modules/
+/package-lock.json
+/package.json
+/webpack.config.js
+/webpack.generated.js
