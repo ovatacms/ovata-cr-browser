@@ -1,0 +1,12 @@
+:host [part="toggle"]::before {
+    font-family: FontAwesome !important;
+    content: var( --ovata-toggle-type-collapsed, '\f105') !important;
+    visibility: visible;
+    font-size: var( --ovata-toggle-type-size, 1em);
+}
+
+:host([expanded]) [part="toggle"]::before {
+    font-family: FontAwesome !important;
+    content: var( --ovata-toggle-type-expanded, '\f107') !important;
+    transform: rotate(15deg);
+}

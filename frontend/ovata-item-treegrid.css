@@ -1,0 +1,82 @@
+@import "font-awesome-4.7.0/css/font-awesome.min.css";
+
+[part~="cell"].ovata-toggle-unstructured {
+    --ovata-toggle-type-collapsed: '\f105';
+    --ovata-toggle-type-expanded: '\f107';
+}
+
+[part~="cell"].ovata-toggle-folder {
+    --ovata-toggle-type-collapsed: '\f114';
+    --ovata-toggle-type-expanded: '\f115';
+}
+
+[part~="cell"].ovata-toggle-resource {
+    --ovata-toggle-type-collapsed: '\f016';
+    --ovata-toggle-type-expanded: '\f016';
+}
+
+[part~="cell"].ovata-toggle-application {
+    --ovata-toggle-type-collapsed: '\f2db';
+    --ovata-toggle-type-expanded: '\f2db';
+}
+
+[part~="cell"].ovata-toggle-role {
+    --ovata-toggle-type-collapsed: '\f0c0';
+    --ovata-toggle-type-expanded: '\f0c0';
+}
+
+[part~="cell"].ovata-toggle-user {
+    --ovata-toggle-type-collapsed: '\f2c0';
+    --ovata-toggle-type-expanded: '\f2c0';
+}
+
+[part~="cell"].ovata-toggle-form {
+    --ovata-toggle-type-collapsed: '\f2c3';
+    --ovata-toggle-type-expanded: '\f2c3';
+}
+
+[part~="cell"].ovata-toggle-area {
+    --ovata-toggle-type-collapsed: '\f196';
+    --ovata-toggle-type-expanded: '\f196';
+}
+
+[part~="cell"].ovata-toggle-component {
+    --ovata-toggle-type-collapsed: '\f12e';
+    --ovata-toggle-type-expanded: '\f12e';
+}
+
+[part~="cell"].ovata-toggle-page {
+    --ovata-toggle-type-collapsed: '\f2d0';
+    --ovata-toggle-type-expanded: '\f2d0';
+}
+
+[part~="cell"].ovata-toggle-redirect {
+    --ovata-toggle-type-collapsed: '\f064';
+    --ovata-toggle-type-expanded: '\f064';
+}
+
+[part~="cell"].ovata-toggle-site {
+    --ovata-toggle-type-collapsed: '\f0ac';
+    --ovata-toggle-type-expanded: '\f0ac';
+}
+
+[part~="cell"].ovata-toggle-template {
+    --ovata-toggle-type-collapsed: '\f1c9';
+    --ovata-toggle-type-expanded: '\f1c9';
+}
+
+[part~="cell"].ovata-toggle-script {
+    --ovata-toggle-type-collapsed: '\f1c9';
+    --ovata-toggle-type-expanded: '\f1c9';
+}
+
+[part~="cell"].ovata-toggle-script {
+    --ovata-toggle-type-collapsed: '\f09e';
+    --ovata-toggle-type-expanded: '\f09e';
+}
+
+[part~="cell"].ovata-toggle-property {
+    --ovata-toggle-type-collapsed: '\f069';
+    --ovata-toggle-type-expanded: '\f069';
+    --ovata-toggle-type-size: 12px;
+}
