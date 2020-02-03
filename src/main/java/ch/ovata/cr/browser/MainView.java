@@ -69,6 +69,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     private final Button btnCommit = new Button( "Commit", this::onCommit);
     private final Button btnRollback = new Button( "Rollback", this::onRollback);
     private final Button btnRefresh = new Button( "Refresh", this::onRefresh);
+    private final Button btnEditAcl = new Button( "Edit Acl", this::onEditAcl);
     
     public MainView() {
         this.setSizeFull();
@@ -94,10 +95,12 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
         this.workspaces.setValue( "system_users");
 
         this.buttons.setMargin( false);
+        this.buttons.setPadding( false);
+        this.buttons.setSpacing( false);
         this.buttons.setWidth( "200px");
         this.buttons.setHeight( "100%");
         
-        addButtons( btnAddNode, btnAddProperty, btnRemove, btnCommit, btnRollback, btnRefresh);
+        addButtons( btnAddNode, btnAddProperty, btnRemove, btnEditAcl, btnCommit, btnRollback, btnRefresh);
         
         btnRefresh.setEnabled( true);
         
@@ -242,6 +245,16 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     private void onRefresh( ClickEvent<Button> event) {
         this.grid.getSession().refresh();
     }
+    
+    private void onEditAcl( ClickEvent<Button> event) {
+        getSelectedItem().ifPresent( i -> {
+            editAcl( (Node)i);
+        });
+    }
+    
+    private void editAcl( Node node) {
+        new EditAclDialog( node).open();
+    }
 
     @Override
     public void onStateChange(Session.Event event) {
@@ -265,10 +278,10 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     
     private void changeButtonState( Item i) {
         
-        disableButtons( btnAddNode, btnAddProperty, btnRemove);
+        disableButtons( btnAddNode, btnAddProperty, btnRemove, btnEditAcl);
         
         if( i instanceof Node) {
-            enableButtons( true, btnAddNode, btnAddProperty, btnRemove);
+            enableButtons( true, btnAddNode, btnAddProperty, btnRemove, btnEditAcl);
         }
         
         if( i instanceof Property) {
