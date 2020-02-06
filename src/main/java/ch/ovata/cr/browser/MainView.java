@@ -13,6 +13,7 @@
  */
 package ch.ovata.cr.browser;
 
+import ch.ovata.cr.browser.acl.EditAclDialog;
 import ch.ovata.cr.api.CoreNodeTypes;
 import ch.ovata.cr.api.Item;
 import ch.ovata.cr.api.Node;

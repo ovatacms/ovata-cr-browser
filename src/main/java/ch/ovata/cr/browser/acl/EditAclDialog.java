@@ -11,27 +11,21 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Ovata GmbH.
  */
-package ch.ovata.cr.browser;
+package ch.ovata.cr.browser.acl;
 
 import ch.ovata.cr.api.Node;
-import ch.ovata.cr.api.security.Acl;
-import ch.ovata.cr.api.security.Permission;
 import ch.ovata.cr.impl.security.ModifiableAcl;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.ItemDoubleClickEvent;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.listbox.MultiSelectListBox;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.data.binder.Binder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,9 +37,9 @@ import java.util.stream.Collectors;
 @CssImport( value = "./ovata-dialog.css", themeFor = "vaadin-dialog-overlay")
 public class EditAclDialog extends Dialog {
     
-    private final Grid<ModifiableAcl> grid;
+    private final AclGrid grid;
     private final Node node;
-    private final List<ModifiableAcl> acls = new ArrayList<>();
+    private final List<ModifiableAcl> acls;
     
     private final Button btnCancel = new Button( "Cancel", this::onCancel);
     private final Button btnConfirm = new Button( "Save", this::onSave);
@@ -56,46 +50,16 @@ public class EditAclDialog extends Dialog {
     
     public EditAclDialog( Node node) {
         this.node = node;
-        
-        this.acls.addAll( this.node.getPolicy().getAcls().stream().map( a -> new ModifiableAcl( a)).collect( Collectors.toList()));
+        this.acls = getModifiableCopyOfAcls();
         
         this.setWidth( "800px");
         this.setCloseOnEsc( false);
         this.setCloseOnOutsideClick( false);
         
-        PrincipalComboBox pc = new PrincipalComboBox( node.getSession());
-        Checkbox in = new Checkbox();
-        MultiSelectListBox<Permission> pec = new MultiSelectListBox<>();
-        
-        pec.setItems( Permission.values());
-        
-        Binder<ModifiableAcl> binder = new Binder();
-
-        binder.forField( pc).bind( ModifiableAcl::getPrincipal, ModifiableAcl::setPrincipal);
-        binder.forField( in).bind( ModifiableAcl::isNegative, ModifiableAcl::setNegative);
-        binder.forField( pec).bind( ModifiableAcl::getPermissions, ModifiableAcl::setPermissions);
-        
-        pc.setWidth( "100%");
-        pec.setWidth( "100%");
-        
-        this.grid = new Grid<>();
-        this.grid.addColumn( acl -> (acl.getPrincipal() != null) ? acl.getPrincipal().getName() : "")
-                    .setHeader( "Principal")
-                    .setFlexGrow( 4)
-                    .setEditorComponent( pc);
-        this.grid.addColumn( Acl::isNegative).setHeader( "Negative?")
-                    .setFlexGrow( 1)
-                    .setEditorComponent( in);
-        this.grid.addColumn( Acl::getPermissions)
-                    .setHeader( "Permissions").setFlexGrow( 6)
-                    .setEditorComponent( pec);
-        
+        this.grid = new AclGrid( node.getSession());
         this.grid.addItemDoubleClickListener( this::onStartEditing);
         this.grid.setItems( acls);
         this.grid.setWidth( "100%");
-
-        this.grid.getEditor().setBinder( binder);
-        this.grid.getEditor().setBuffered( true);
         
         this.btnCancel.setThemeName( ButtonVariant.LUMO_TERTIARY.getVariantName());
         this.btnConfirm.setThemeName( ButtonVariant.LUMO_PRIMARY.getVariantName());
@@ -181,5 +145,9 @@ public class EditAclDialog extends Dialog {
         
         this.btnCancel.setEnabled( true);
         this.btnConfirm.setEnabled( true);
+    }
+    
+    private List<ModifiableAcl> getModifiableCopyOfAcls() {
+        return new ArrayList( this.node.getPolicy().getAcls().stream().map( a -> new ModifiableAcl( a)).collect( Collectors.toList()));
     }
 }

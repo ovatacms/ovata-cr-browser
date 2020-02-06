@@ -11,23 +11,18 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Ovata GmbH.
  */
-package ch.ovata.cr.browser;
+package ch.ovata.cr.browser.acl;
 
 import ch.ovata.cr.api.security.Permission;
-import org.vaadin.gatanaso.MultiselectComboBox;
+import com.vaadin.flow.component.listbox.MultiSelectListBox;
 
 /**
  *
  * @author dani
  */
-public class PermissionsComboBox extends MultiselectComboBox<Permission> {
+public class PermissionsListBox extends MultiSelectListBox<Permission> {
     
-    public PermissionsComboBox() {
-        super( 5);
-        this.setItemLabelGenerator( this::getLabel);
-    }
-    
-    private String getLabel( Permission p) {
-        return p.name();
+    public PermissionsListBox() {
+        this.setItems( Permission.values());
     }
 }
