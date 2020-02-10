@@ -11,7 +11,7 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Ovata GmbH.
  */
-package ch.ovata.cr.browser;
+package ch.ovata.cr.browser.main;
 
 import ch.ovata.cr.browser.acl.EditAclDialog;
 import ch.ovata.cr.api.CoreNodeTypes;
@@ -19,6 +19,9 @@ import ch.ovata.cr.api.Item;
 import ch.ovata.cr.api.Node;
 import ch.ovata.cr.api.Property;
 import ch.ovata.cr.api.Session;
+import ch.ovata.cr.browser.ConfirmationDialog;
+import ch.ovata.cr.browser.CreateWorkspaceDialog;
+import ch.ovata.cr.browser.WorkspacesComboBox;
 import ch.ovata.cr.browser.utils.SessionMgr;
 import ch.ovata.cr.browser.grid.ItemTreeGrid;
 import ch.ovata.cr.tools.NodeUtils;

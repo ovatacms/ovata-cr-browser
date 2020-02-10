@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>14.1.5</vaadin.version>
+        <vaadin.version>14.1.17</vaadin.version>
         <ovata.cr.version>1.4.8-SNAPSHOT</ovata.cr.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

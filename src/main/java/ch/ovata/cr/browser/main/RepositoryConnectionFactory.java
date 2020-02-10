@@ -11,7 +11,7 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Ovata GmbH.
  */
-package ch.ovata.cr.browser;
+package ch.ovata.cr.browser.main;
 
 import ch.ovata.cr.api.RepositoryConnection;
 import ch.ovata.cr.elastic.ElasticSearchProviderFactory;

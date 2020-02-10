@@ -13,7 +13,6 @@
  */
 package ch.ovata.cr.browser;
 
-import ch.ovata.cr.browser.utils.Action;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -28,6 +27,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
  * @author dani
  */
 public class ConfirmationDialog extends Dialog {
+    
+    public static interface Action {
+        void execute();
+    }
     
     private final Action action;
     
