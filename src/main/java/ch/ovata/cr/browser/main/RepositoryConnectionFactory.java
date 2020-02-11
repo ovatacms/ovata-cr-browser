@@ -26,7 +26,6 @@ import ch.ovata.cr.store.postgresql.concurrency.PostgresqlConcurrencyControlFact
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
  *
