@@ -40,6 +40,7 @@ public class RepositoryLifeCycleListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
         logger.info( "Shutting down servlet context.");
         
+        RepositoryHelper.clear();
         RepositoryConnectionFactory.instance().shutdown();
     }
 }

@@ -23,6 +23,9 @@ import ch.ovata.cr.spi.store.blob.BlobStoreFactory;
 import ch.ovata.cr.store.postgresql.PostgresqlBlobStoreFactory;
 import ch.ovata.cr.store.postgresql.PostgresqlConnection;
 import ch.ovata.cr.store.postgresql.concurrency.PostgresqlConcurrencyControlFactory;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
@@ -40,22 +43,29 @@ public class RepositoryConnectionFactory {
     }
     
     private RepositoryConnectionFactory() {
-        BasicDataSource ds = new BasicDataSource();
-
-        ds.setDriverClassName( "org.postgresql.Driver");
-        ds.setUrl( "jdbc:postgresql://localhost:5432/dani");
-        ds.setUsername( "postgres");
-        ds.setPassword( "");
-        ds.setAutoCommitOnReturn( true);
-        ds.setDefaultAutoCommit( false);
-        ds.setInitialSize( 1);
-
+        DataSource ds = getDataSource();
         BlobStoreFactory blobStoreFactory = new PostgresqlBlobStoreFactory( ds);
         ConcurrencyControlFactory ccontrol = new PostgresqlConcurrencyControlFactory( ds);
         StoreConnection dbconnection = new PostgresqlConnection( ds, blobStoreFactory, ccontrol);
         SearchProviderFactory searchProviderFactory = new ElasticSearchProviderFactory( blobStoreFactory, "localhost", "");
         
         this.connection = new RepositoryConnectionImpl( dbconnection, searchProviderFactory);
+    }
+    
+    private DataSource getDataSource() {
+        try {
+            InitialContext ctx = new InitialContext();
+
+            try {
+                return (DataSource)ctx.lookup( "java:/comp/env/jdbc/database");
+            }
+            finally {
+                ctx.close();
+            }
+        }
+        catch( NamingException e) {
+            throw new IllegalStateException( "Could not initialize content repository.", e);
+        }
     }
     
     public RepositoryConnection getConnection() {

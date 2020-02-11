@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/ovata-cr-browser"/>
+<Context path="/ovata-cr-browser">
+    <Resource   name="jdbc/database"
+                auth="Container"
+                type="javax.sql.DataSource"
+                initialSize="1"
+                maxTotal="20"
+                maxIdle="10"
+                username="postgres"
+                password=""
+                driverClassName="org.postgresql.Driver"
+                url="jdbc:postgresql://localhost:5432/dani"
+                defaultAutoCommit="false"
+                rollbackOnReturn="true"
+                validationQuery="select 1"/>
+</Context>
