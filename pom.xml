@@ -35,11 +35,6 @@
             <version>${ovata.cr.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.vaadin.gatanaso</groupId>
-            <artifactId>multiselect-combo-box-flow</artifactId>
-            <version>2.4.0-SNAPSHOT</version>
-        </dependency>       
-        <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
             <version>1.23</version>
@@ -292,7 +287,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.28</version>
+            <version>1.7.30</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
