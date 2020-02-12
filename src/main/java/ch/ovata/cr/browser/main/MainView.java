@@ -29,6 +29,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Main;
@@ -57,6 +58,7 @@ import org.slf4j.LoggerFactory;
  * @author dani
  */
 @Route( "")
+@StyleSheet( "/ovata-cr-browser/font-awesome-4.7.0/css/font-awesome.css")
 public class MainView extends Main implements BeforeEnterObserver, Session.Listener, PageConfigurator {
     
     private static final Logger logger = LoggerFactory.getLogger( MainView.class);
