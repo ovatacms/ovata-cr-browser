@@ -58,7 +58,7 @@ import org.slf4j.LoggerFactory;
  * @author dani
  */
 @Route( "")
-@StyleSheet( "/ovata-cr-browser/font-awesome-4.7.0/css/font-awesome.css")
+@StyleSheet( "/font-awesome-4.7.0/css/font-awesome.css")
 public class MainView extends Main implements BeforeEnterObserver, Session.Listener, PageConfigurator {
     
     private static final Logger logger = LoggerFactory.getLogger( MainView.class);
@@ -149,7 +149,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
         try {
             logger.info( "Login attempt for user <{}>.", event.getUsername());
             
-            SessionMgr.login( "sirene", event.getUsername(), event.getPassword());
+            SessionMgr.login( "bluesky", event.getUsername(), event.getPassword());
             
             loginOverlay.setOpened( false);
             

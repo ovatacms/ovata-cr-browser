@@ -33,7 +33,7 @@ public class RepositoryLifeCycleListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         logger.info( "Initializing servlet context.");
         
-        RepositoryHelper.setConnection( RepositoryConnectionFactory.instance().getConnection());
+        RepositoryHelper.setConnection( RepositoryConnectionFactory2.instance().getConnection());
     }
 
     @Override
@@ -41,6 +41,6 @@ public class RepositoryLifeCycleListener implements ServletContextListener {
         logger.info( "Shutting down servlet context.");
         
         RepositoryHelper.clear();
-        RepositoryConnectionFactory.instance().shutdown();
+        RepositoryConnectionFactory2.instance().shutdown();
     }
 }
