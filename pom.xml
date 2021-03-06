@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>17.0.3</vaadin.version>
-        <ovata.cr.version>1.4.21</ovata.cr.version>
+        <vaadin.version>18.0.6</vaadin.version>
+        <ovata.cr.version>1.4.22</ovata.cr.version>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <jackson-bom.version>2.11</jackson-bom.version>
