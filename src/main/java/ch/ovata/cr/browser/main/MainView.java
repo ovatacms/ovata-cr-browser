@@ -22,7 +22,6 @@ import ch.ovata.cr.api.Session;
 import ch.ovata.cr.browser.ConfirmationDialog;
 import ch.ovata.cr.browser.CreateWorkspaceDialog;
 import ch.ovata.cr.browser.WorkspacesComboBox;
-import ch.ovata.cr.browser.utils.SessionMgr;
 import ch.ovata.cr.browser.grid.ItemTreeGrid;
 import ch.ovata.cr.tools.NodeUtils;
 import com.vaadin.flow.component.ClickEvent;
@@ -77,7 +76,11 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     private final Button btnRefresh = new Button( "Refresh", this::onRefresh);
     private final Button btnEditAcl = new Button( "Edit Acl", this::onEditAcl);
     
-    public MainView() {
+    private final SessionMgr sessionMgr;
+    
+    public MainView( SessionMgr sessionMgr) {
+        this.sessionMgr = sessionMgr;
+        
         this.setSizeFull();
     }
 
@@ -149,7 +152,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
         try {
             logger.info( "Login attempt for user <{}>.", event.getUsername());
             
-            SessionMgr.login( "bluesky", event.getUsername(), event.getPassword());
+            this.sessionMgr.login( "sirene", event.getUsername(), event.getPassword());
             
             loginOverlay.setOpened( false);
             
@@ -173,7 +176,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     
     @Override
     public void beforeEnter(BeforeEnterEvent bee) {
-        if( !SessionMgr.isLoggedIn()) {
+        if( !this.sessionMgr.isLoggedIn()) {
             initLogin();
         }
         else {

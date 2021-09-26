@@ -15,7 +15,7 @@ package ch.ovata.cr.browser;
 
 import ch.ovata.cr.api.Node;
 import ch.ovata.cr.browser.grid.SimpleNodeGrid;
-import ch.ovata.cr.browser.utils.SessionMgr;
+import ch.ovata.cr.browser.main.SessionMgr;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 import com.vaadin.flow.component.button.Button;

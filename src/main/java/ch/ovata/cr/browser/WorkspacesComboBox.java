@@ -13,7 +13,7 @@
  */
 package ch.ovata.cr.browser;
 
-import ch.ovata.cr.browser.utils.SessionMgr;
+import ch.ovata.cr.browser.main.SessionMgr;
 import com.vaadin.flow.component.combobox.ComboBox;
 import java.util.Collection;
 
