@@ -1,6 +1,6 @@
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/dani
+        url: jdbc:postgresql://localhost:5432/ovata
         username: postgres
         password: postgres
         auto-commit: false

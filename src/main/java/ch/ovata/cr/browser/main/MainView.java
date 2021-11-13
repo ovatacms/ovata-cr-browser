@@ -152,7 +152,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
         try {
             logger.info( "Login attempt for user <{}>.", event.getUsername());
             
-            this.sessionMgr.login( "sirene", event.getUsername(), event.getPassword());
+            this.sessionMgr.login( "ovatadev", event.getUsername(), event.getPassword());
             
             loginOverlay.setOpened( false);
             

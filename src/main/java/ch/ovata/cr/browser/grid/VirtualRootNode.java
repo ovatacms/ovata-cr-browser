@@ -51,7 +51,7 @@ public class VirtualRootNode implements Node {
 
     @Override
     public NodeId getNodeId() {
-        return new NodeId( "VIRTUAL-ROOT-ID", 0);
+        return new NodeId( "VIRTUAL-ROOT-ID", 0l, 0l);
     }
 
     @Override
