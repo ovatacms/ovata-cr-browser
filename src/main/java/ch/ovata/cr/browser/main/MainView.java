@@ -39,12 +39,13 @@ import com.vaadin.flow.component.login.LoginOverlay;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.data.selection.SelectionEvent;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.AppShellSettings;
 import com.vaadin.flow.server.InitialPageSettings;
-import com.vaadin.flow.server.PageConfigurator;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
@@ -58,7 +59,7 @@ import org.slf4j.LoggerFactory;
  */
 @Route( "")
 @StyleSheet( "/font-awesome-4.7.0/css/font-awesome.css")
-public class MainView extends Main implements BeforeEnterObserver, Session.Listener, PageConfigurator {
+public class MainView extends Main implements BeforeEnterObserver, Session.Listener, AppShellConfigurator {
     
     private static final Logger logger = LoggerFactory.getLogger( MainView.class);
     
@@ -85,7 +86,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
     }
 
     @Override
-    public void configurePage(InitialPageSettings settings) {
+    public void configurePage( AppShellSettings settings) {
         settings.addFavIcon( "icon", "ovata-icon.svg", "64x64");
     }
     
