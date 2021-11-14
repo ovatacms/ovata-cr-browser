@@ -16,7 +16,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <jackson-bom.version>2.13.0</jackson-bom.version>
-        <spring.version>2.5.6</spring.version>
+        <spring.version>2.4.5</spring.version>
     </properties>
     
     <dependencyManagement>
@@ -35,12 +35,11 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
-            <version>${vaadin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
-            <version>2.4.5</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.ovata.cr</groupId>

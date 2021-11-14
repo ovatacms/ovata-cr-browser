@@ -5,7 +5,7 @@ import ch.ovata.cr.impl.RepositoryConnectionImpl;
 import ch.ovata.cr.spi.search.SearchProviderFactory;
 import ch.ovata.cr.spi.store.StoreConnection;
 import ch.ovata.cr.spi.store.blob.BlobStoreFactory;
-import ch.ovata.cr.store.postgresql.PostgresqlBlobStoreFactory;
+import ch.ovata.cr.store.postgresql.blob.PostgresqlBlobStoreFactory;
 import ch.ovata.cr.store.postgresql.PostgresqlConnection;
 import ch.ovata.cr.store.postgresql.search.PostgresqlSearchProviderFactory;
 import javax.sql.DataSource;
