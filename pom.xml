@@ -54,21 +54,6 @@
         </dependency>
         <dependency>
             <groupId>ch.ovata.cr</groupId>
-            <artifactId>ovata-cr-elastic</artifactId>
-            <version>${ovata.cr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.ovata.cr</groupId>
-            <artifactId>ovata-cr-mongodb</artifactId>
-            <version>${ovata.cr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.ovata.cr</groupId>
-            <artifactId>ovata-cr-aws</artifactId>
-            <version>${ovata.cr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.ovata.cr</groupId>
             <artifactId>ovata-cr-utils</artifactId>
             <version>${ovata.cr.version}</version>
         </dependency>

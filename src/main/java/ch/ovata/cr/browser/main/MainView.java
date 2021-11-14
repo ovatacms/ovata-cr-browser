@@ -267,7 +267,7 @@ public class MainView extends Main implements BeforeEnterObserver, Session.Liste
 
     @Override
     public void onStateChange(Session.Event event) {
-        logger.info( "Session state changed : " + event.getClass().getName());
+        logger.debug( "Session state changed : " + event.getClass().getName());
 
         enableButtons( this.grid.getSession().isDirty(), btnCommit, btnRollback);
         this.btnRefresh.setEnabled( !this.grid.getSession().isDirty());

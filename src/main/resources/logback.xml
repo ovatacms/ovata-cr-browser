@@ -7,14 +7,13 @@
         </layout>
     </appender>
 
-    <logger name="ch.ovata" level="TRACE"/>
-    <logger name="org.mongodb.driver" level="WARN"/>
-    <logger name="org.thymeleaf" level="INFO"/>
-    <logger name="com.hazelcast" level="WARN"/>
-    <logger name="org.terracotta" level="WARN"/>
+    <logger name="ch.ovata" level="INFO"/>
     <logger name="org.postgresql" level="WARN"/>
+    <logger name="org.apache.tomcat" level="WARN"/>
+    <logger name="org.apache.coyote" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
     
-    <root level="TRACE">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>
