@@ -1,7 +1,6 @@
 package ch.ovata.cr.browser.main;
 
 import ch.ovata.cr.api.RepositoryConnection;
-import ch.ovata.cr.elastic.ElasticSearchProviderFactory;
 import ch.ovata.cr.impl.RepositoryConnectionImpl;
 import ch.ovata.cr.spi.search.SearchProviderFactory;
 import ch.ovata.cr.spi.store.StoreConnection;
@@ -23,7 +22,7 @@ public class RepositoryFactory {
     private final DataSource datasource;
     
     public RepositoryFactory( DataSource ds) {
-        this.datasource =ds ;
+        this.datasource = ds ;
     }
     
     @Bean
